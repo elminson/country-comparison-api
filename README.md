@@ -22,10 +22,18 @@ Joe created one endpoint that retrieves a list of country names, using mock data
 
 1. Update the endpoint to pull country data from http://api.population.io/1.0/countries.
 2. The endpoint http://api.population.io/1.0/population/:country/:date returns the total population for a given country on a given date.  Design and implement an endpoint in our API that will allow a consumer to specify an arbitrary set of countries and an optional sort order, and receive back a list of countries and their population based on the current date.  If a sort order was specified, return the list sorted on population size, according to the consumer's requested sort order.
+Points:
+  # allow a consumer to specify an arbitrary set of countries
+  # optional sort order, 
+  # receive back a list of countries and their population based on the current date.  
+  # If a sort order was specified, return the list sorted on population size, according to the consumer's requested sort order.
+  
+  # the consumer can send a date and receive back a list of countries and their population based date requested
+
 
 Try to be consistent with Joe's implementation in terms of:
-* unit tests
-* documentation
+* unit tests *
+* documentation * 
 * error handling
 * response codes
 * validation
@@ -36,13 +44,61 @@ Zip your solution, upload it somewhere, and send us a link to the zipped file.
 ### Bonus
 1. Some scenarios to consider (leave your thoughts inline in your code or edit the README):
   * How efficient is your code?  What are some ways that you could improve performance?
+  ```bash
+  I can look for a better way to sort by the results and compare (for example).  
+  ```
   * Suppose we expect this API to be hit 1000s of times a second.  How can we handle the load?
+  # Use load balancer
+  # Use multiple availability zones
+  # Split static (we can create static file for the most frequently requested countries) files to different server/service. (AWS S3 and CloudFront CDN)
+  
   * What if the 3rd party provider is not available?  How resilient is our API?
+  ```bash
+  if the 3rd party provider is not available, the currend code will return a proper message and the countries in 
+  countriesFails
+  ```
   * What if the requirement for the new endpoint was to also allow the consumer to compare populations for any given date.  How would you modify your implementation?
+
   * What if we have a database of users and we wanted to make our API smarter by defaulting comparisons to always include the population of the current user's country.  How could we accomplish this?
-  * What if we wanted to keep a tally of the most frequently requested countries and have this be available to consumers.  How could we accomplish this?
+  ```bash
+  I can use this service http://ip-api.com/json and get the consumer country based on the IP
+       const geoLocationService = config.routes.geoLocationService;
+       request(geoLocationService, { json: true }, (err, res, body) => {
+            if (err) { console.log(err); }
+            customerCountry = body.country;
+       });
+       
+       Then after get the customerCountry add it to countries array
+       countries.push(customerCountry);
+
+  ```
+  ```json
+      {
+        "as": "AS6128 Cablevision Systems Corp.",
+        "city": "Brooklyn",
+        "country": "United States",
+        "countryCode": "US",
+        "isp": "Optimum Online",
+        "lat": 40.6877,
+        "lon": -73.9267,
+        "org": "Optimum Online (Cablevision Systems",
+        "query": "69.111.107.120",
+        "region": "NY",
+        "regionName": "New York",
+        "status": "success",
+        "timezone": "America/New_York",
+        "zip": "11221"
+      }
+
+  ```
+  * What if we wanted to keep a tally of the most frequently requested countries and have this be available to consumers.  How could we accomplish this? 
+  <B>We can store this results in Redis <B>
 
 2. Dockerize the API
+
+```bash
+docker-compose up  -d
+```
 
 <br>
 <i><a name="footnote1"><sup>1</sup></a> Joe says that api.population.io is down, so try https://dyicn1e62j3n1.cloudfront.net as the host instead.<i>

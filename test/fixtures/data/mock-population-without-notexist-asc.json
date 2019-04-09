@@ -1,0 +1,17 @@
+{
+  "countries": [
+    {
+      "key": "Uganda",
+      "value": 39643502
+    },
+    {
+      "key": "France",
+      "value": 64524519
+    },
+    {
+      "key": "Mexico",
+      "value": 127795440
+    }
+  ],
+  "countriesFails": {}
+}

@@ -26,9 +26,12 @@
     "co": "^4.6.0",
     "everyconfig": "^1.0.2",
     "fs-promise": "^1.0.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4",
     "restify": "^8.1.0",
     "restify-errors": "^7.0.0",
     "restify-plugins": "^1.6.0",
+    "superagent": "^3.5.2",
     "yargs": "^6.5.0"
   },
   "devDependencies": {

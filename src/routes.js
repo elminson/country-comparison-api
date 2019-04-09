@@ -7,13 +7,14 @@ const co = require('co');
 
 module.exports = co.wrap(function* routes(app) {
   const controllerRootUrl = config.routes.controllerRootUrl;
+  const apiVersion = config.routes.apiVersion;
 
   let controllersFolder = path.join(__dirname, 'controllers');
   // setup routes for all controllers
   (yield fs.readdir(controllersFolder)).forEach((file) => {
     /* eslint-disable global-require */
     let currentController = require(path.join(controllersFolder, file));
-    currentController.routes(app, controllerRootUrl);
+    currentController.routes(app, controllerRootUrl + apiVersion);
     /* eslint-enable global-require */
   });
 });

@@ -1,0 +1,19 @@
+{
+  "countries": [
+    {
+      "key": "Uganda",
+      "value": 39643502
+    },
+    {
+      "key": "France",
+      "value": 64524519
+    },
+    {
+      "key": "Mexico",
+      "value": 127795440
+    }
+  ],
+  "countriesFails": {
+    "Imaginary country": "Data for country: Imaginary country, for this date: 2015-12-24 not found!"
+  }
+}

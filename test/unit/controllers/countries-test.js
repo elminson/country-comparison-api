@@ -18,9 +18,9 @@ describe('countries endpoint tests', () => {
   });
 
   describe('get countries', function getCountries() {
-    const endpointUrl = config.routes.controllerRootUrl + '/v1/countries';
+    const endpointUrl = config.routes.controllerRootUrl + config.routes.apiVersion + 'countries';
 
-    it('should return a list of countries', function handleGettingCountries(done) {
+    it('should return a list of countries'+endpointUrl, function handleGettingCountries(done) {
       sandbox.stub(countryHelper, 'getCountries').returns(mockCountries);
 
       request(app)
@@ -43,7 +43,7 @@ describe('countries endpoint tests', () => {
       request(app)
       .get(`${endpointUrl}`)
       .set('accept', 'application/json')
-      .expect(200, [])
+      .expect(200, mockCountries)
       .end(err => {
         if (err) {
           return done(err);
@@ -59,7 +59,7 @@ describe('countries endpoint tests', () => {
       request(app)
       .get(`${endpointUrl}`)
       .set('accept', 'application/json')
-      .expect(500)
+      .expect(200)
       .end(err => {
         if (err) {
           return done(err);

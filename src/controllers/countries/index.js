@@ -3,8 +3,7 @@
 const controller = require('./countries.controller');
 
 function routes(app, rootUrl) {
-  // include api version number
-  let fullRootUrl = rootUrl + '/v1';
+  // api version number is include in rootUrl from config file default.yaml
 
   /**
     * @apiVersion 1.0.0
@@ -27,7 +26,7 @@ function routes(app, rootUrl) {
     *
     * @apiError (Error 500) InternalServerError Returned if there was a server error
     */
-  app.get({ url: fullRootUrl + '/countries' },
+  app.get({ url: rootUrl + 'countries' },
     controller.getCountries);
 }
 

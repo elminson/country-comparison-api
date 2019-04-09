@@ -4,7 +4,10 @@
   server:
     uri: localhost:3000
   routes:
+    serviceUrl: 'https://dyicn1e62j3n1.cloudfront.net:443/1.0/'
     controllerRootUrl: '/api'
+    apiVersion: '/v1/'
+    geoLocationService: 'http://ip-api.com/json'
   logging:
     stdout:
       enabled: true
