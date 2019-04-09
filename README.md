@@ -34,9 +34,9 @@ Points:
 Try to be consistent with Joe's implementation in terms of:
 * unit tests *
 * documentation * 
-* error handling
-* response codes
-* validation
+* error handling *
+* response codes *
+* validation *
 * etc.
 
 Zip your solution, upload it somewhere, and send us a link to the zipped file.
@@ -48,9 +48,11 @@ Zip your solution, upload it somewhere, and send us a link to the zipped file.
   I can look for a better way to sort by the results and compare (for example).  
   ```
   * Suppose we expect this API to be hit 1000s of times a second.  How can we handle the load?
-  # Use load balancer
-  # Use multiple availability zones
-  # Split static (we can create static file for the most frequently requested countries) files to different server/service. (AWS S3 and CloudFront CDN)
+  ```
+  Use load balancer
+  Use multiple availability zones
+  Split static (we can create static file for the most frequently requested countries) files to different server/service. (AWS S3 and CloudFront CDN)
+  ```
   
   * What if the 3rd party provider is not available?  How resilient is our API?
   ```bash
