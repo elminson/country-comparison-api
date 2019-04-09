@@ -111,3 +111,8 @@ docker-compose up  -d
 
 <br>
 <i><a name="footnote1"><sup>1</sup></a> Joe says that api.population.io is down, so try https://dyicn1e62j3n1.cloudfront.net as the host instead.<i>
+
+<i> Example url: http://localhost:3000/api/v1/population?countries[]=United%20States&countries[]=Mexico&countries[]=France&countries[]=Uganda&date=2015-12-24&order=desc<i>
+  
+  <i>http://localhost:3000/api/v1/countries</i>
+  
