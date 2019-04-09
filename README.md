@@ -58,6 +58,7 @@ Zip your solution, upload it somewhere, and send us a link to the zipped file.
   Use load balancer
   Use multiple availability zones
   Split static (we can create static file for the most frequently requested countries) files to different server/service. (AWS S3 and CloudFront CDN)
+  https://www.npmjs.com/package/loadtest used to test hits to the API
   ```
   
   * What if the 3rd party provider is not available?  How resilient is our API?
