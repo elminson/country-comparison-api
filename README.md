@@ -22,13 +22,19 @@ Joe created one endpoint that retrieves a list of country names, using mock data
 
 1. Update the endpoint to pull country data from http://api.population.io/1.0/countries.
 2. The endpoint http://api.population.io/1.0/population/:country/:date returns the total population for a given country on a given date.  Design and implement an endpoint in our API that will allow a consumer to specify an arbitrary set of countries and an optional sort order, and receive back a list of countries and their population based on the current date.  If a sort order was specified, return the list sorted on population size, according to the consumer's requested sort order.
-Points:
-  # allow a consumer to specify an arbitrary set of countries
-  # optional sort order, 
-  # receive back a list of countries and their population based on the current date.  
-  # If a sort order was specified, return the list sorted on population size, according to the consumer's requested sort order.
-  
-  # the consumer can send a date and receive back a list of countries and their population based date requested
+
+Funtionalities:
+
+      a. allow a consumer to specify an arbitrary set of countries.
+      
+      b. optional sort order.
+      
+      c. receive back a list of countries and their population based on the current date.  
+      
+      
+      d. If a sort order was specified, return the list sorted on population size, according to the consumer's requested sort order.
+      
+      e. the consumer can send a date and receive back a list of countries and their population based date requested
 
 
 Try to be consistent with Joe's implementation in terms of:
